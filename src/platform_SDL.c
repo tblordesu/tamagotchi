@@ -4,7 +4,7 @@
 #include "platform.h"
 #include "graphics.h"
 
-#define SCALE 5
+#define SCALE 8
 
 static SDL_Window * window = NULL;
 static SDL_Renderer * renderer = NULL;

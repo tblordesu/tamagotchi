@@ -14,7 +14,7 @@ int main(int argc, char **args) {
 
         graphicsClear();
 
-        drawSprite(5, 5, &petIdle);
+        drawSprite(30, 10, &catIdle1);
 
         platformPresent();
     }

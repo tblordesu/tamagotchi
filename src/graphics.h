@@ -12,12 +12,8 @@ extern uint8_t framebuffer[FRAMEBUFFER_SIZE];
 typedef struct {
     int width;
     int height;
-    const uint8_t *data;
+    const uint32_t *data;
 } Sprite;
-
-extern const uint8_t petIdleSprite[];
-
-extern const Sprite petIdle;
 
 void graphicsClear();
 void setPixel(int x, int y, int val);

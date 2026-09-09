@@ -4,4 +4,5 @@
 #include "graphics.h"
 
 extern const Sprite petIdle;
+extern const Sprite catIdle1;
 #endif

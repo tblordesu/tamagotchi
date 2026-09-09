@@ -32,19 +32,21 @@ int getPixel(int x, int y) {
     return (framebuffer[byte_index] >> bit_index) & 1u;
 }
 
-void drawSprite(int x, int y, const Sprite *sprite) {
-    //int start_draw_x, start_draw_y = x, y;
-
+void drawSprite(int x, int y, const Sprite *sprite)
+{
     for (int draw_y = 0; draw_y < sprite->height; ++draw_y) {
+
+        uint32_t row = sprite->data[draw_y];
+
         for (int draw_x = 0; draw_x < sprite->width; ++draw_x) {
-            int pixel = draw_y * sprite->width + draw_x;
 
-            int byte_index = pixel / 8;
-            int bit_index = pixel % 8;
+            int bit_index = 31 - draw_x;
 
-            int val = (sprite->data[byte_index] >> bit_index) & 1u;
-            if (val)
+            int val = (row >> bit_index) & 1u;
+
+            if (val) {
                 setPixel(x + draw_x, y + draw_y, 1);
+            }
         }
     }
 }
