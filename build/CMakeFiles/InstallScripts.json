@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Tamagochi/tamagochi/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

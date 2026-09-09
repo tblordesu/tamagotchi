@@ -1,0 +1,3 @@
+C:/Tamagochi/tamagochi/build/CMakeFiles/tamagotchi.dir
+C:/Tamagochi/tamagochi/build/CMakeFiles/edit_cache.dir
+C:/Tamagochi/tamagochi/build/CMakeFiles/rebuild_cache.dir
