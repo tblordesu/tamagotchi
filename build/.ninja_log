@@ -1,4 +1,7 @@
 # ninja log v7
-2	368	8106455356877993	CMakeFiles/tamagotchi.dir/src/main.c.obj	d632c2f2a8709e96
-13	388	8106455907229538	CMakeFiles/tamagotchi.dir/src/main.c.obj	d632c2f2a8709e96
-388	471	8106455911026782	tamagotchi.exe	c1a705ba7ba3e0a1
+18	392	8106627543456286	CMakeFiles/tamagotchi.dir/src/main.c.obj	d632c2f2a8709e96
+391	476	8106600509998290	tamagotchi.exe	8850d861b176596b
+22	87	8106627543456286	CMakeFiles/tamagotchi.dir/src/graphics.c.obj	59874071c98cc37a
+21	77	8106628063383686	CMakeFiles/tamagotchi.dir/src/sprites.c.obj	d8e4b0d74a0dacdf
+9	375	8106629144824501	CMakeFiles/tamagotchi.dir/src/platform_SDL.c.obj	acae680bacb193bc
+376	462	8106629148502818	tamagotchi.exe	d34716e5bd1fcaf7

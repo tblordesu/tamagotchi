@@ -8,6 +8,9 @@ find_package(SDL2 REQUIRED)
 
 add_executable(tamagotchi
     src/main.c
+    src/graphics.c
+    src/platform_SDL.c
+    src/sprites.c
 )
 
 target_link_libraries(tamagotchi PRIVATE SDL2::SDL2)
