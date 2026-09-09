@@ -39,14 +39,10 @@ void drawSprite(int x, int y, const Sprite *sprite)
         uint32_t row = sprite->data[draw_y];
 
         for (int draw_x = 0; draw_x < sprite->width; ++draw_x) {
-
             int bit_index = 31 - draw_x;
-
             int val = (row >> bit_index) & 1u;
-
-            if (val) {
+            if (val)
                 setPixel(x + draw_x, y + draw_y, 1);
-            }
         }
     }
 }
