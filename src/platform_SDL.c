@@ -11,6 +11,26 @@ static SDL_Renderer * renderer = NULL;
 
 static int running = 1;
 
+static int buttonPressed[BUTTON_COUNT];
+static int buttonReleased[BUTTON_COUNT];
+static int buttonHeld[BUTTON_COUNT];
+
+static int getButtonFromScancode(SDL_Scancode key) {
+    switch (key) {
+        case SDL_SCANCODE_Q:
+            return BUTTON_Q;
+
+        case SDL_SCANCODE_W:
+            return BUTTON_W;
+
+        case SDL_SCANCODE_E:
+            return BUTTON_E;
+
+        default:
+            return -1;
+    }
+}
+
 int platformInit() {
     SDL_SetMainReady();
 
@@ -55,14 +75,74 @@ int platformRunning() {
 }
 
 void platformPollEvents() {
+
+    for (int i = 0; i < BUTTON_COUNT; ++i) {
+        buttonPressed[i] = 0;
+        buttonReleased[i] = 0;
+    }
+
     SDL_Event event;
 
     while (SDL_PollEvent(&event)) {
         if (event.type == SDL_QUIT)
             running = 0;
+
+        else if (event.type == SDL_KEYDOWN) {
+
+            if (event.key.repeat != 0)
+                continue;
+
+            int button = getButtonFromScancode(event.key.keysym.scancode);
+
+            if(button >= 0) {
+                buttonPressed[button] = 1;
+                buttonHeld[button] = 1;
+            }
+
+            if (event.key.keysym.sym == SDLK_ESCAPE)
+                running = 0;
+        }
+
+        else if (event.type == SDL_KEYUP) {
+
+            int button = getButtonFromScancode(event.key.keysym.scancode);
+
+            if (button >= 0) {
+                buttonReleased[button] = 1;
+                buttonHeld[button] = 0;
+            }
+        }
     }
 }
 
+int platformButtonPressed(Button button) {
+    if (button < 0 || button >= BUTTON_COUNT)
+        return 0;
+
+    return buttonPressed[button];
+}
+
+int platformButtonReleased(Button button) {
+    if (button <0 || button >= BUTTON_COUNT)
+        return 0;
+
+    return buttonReleased[button];
+}
+
+int platformButtonHeld (Button button) {
+    if (button < 0 || button >= BUTTON_COUNT)
+        return 0;
+
+    return buttonHeld[button];
+}
+
+uint32_t platformGetTimeMs () {
+    return SDL_GetTicks();
+}
+
+void platformDelay (uint32_t ms) {
+    SDL_Delay(ms);
+}
 
 void platformPresent () {
     SDL_SetRenderDrawColor(renderer, 20, 20, 20, 255);
@@ -99,4 +179,6 @@ void platformShutdown() {
     }
 
     SDL_Quit();
+
+    running = 0;
 }

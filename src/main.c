@@ -1,9 +1,8 @@
-#define SDL_MAIN_HANDLED
-#include <SDL2/SDL.h>
-
 #include "graphics.h"
 #include "sprites.h"
 #include "platform.h"
+
+static int switchSprite = 0;
 
 int main(int argc, char **args) {
     if (!platformInit())
@@ -11,12 +10,10 @@ int main(int argc, char **args) {
 
     while (platformRunning()) {
         platformPollEvents();
-
-        graphicsClear();
-
-        drawSprite(30, 10, &catIdle1);
-
+        
         platformPresent();
+        
+        platformDelay(16);
     }
 
     platformShutdown();

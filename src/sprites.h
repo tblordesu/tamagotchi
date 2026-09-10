@@ -3,6 +3,8 @@
 
 #include "graphics.h"
 
-extern const Sprite petIdle;
+extern const Sprite catHappy1;
+extern const Sprite catHappy2;
 extern const Sprite catIdle1;
+extern const Sprite catIdle2;
 #endif
