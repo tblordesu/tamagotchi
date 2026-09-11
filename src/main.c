@@ -1,6 +1,7 @@
 #include "graphics.h"
 #include "sprites.h"
 #include "platform.h"
+#include "animation.h"
 
 static int switchSprite = 0;
 
@@ -10,6 +11,14 @@ int main(int argc, char **args) {
 
     while (platformRunning()) {
         platformPollEvents();
+
+        uint32_t nowTime = platformGetTimeMs();
+
+        animationUpdate(&catIdleAnimation, nowTime);
+
+        graphicsClear();
+        
+        drawAnimation(40, 10, &catIdleAnimation);
         
         platformPresent();
         

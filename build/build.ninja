@@ -76,6 +76,14 @@ build CMakeFiles/tamagotchi.dir/src/sprites.c.obj: C_COMPILER__tamagotchi_unscan
   OBJECT_FILE_DIR = CMakeFiles\tamagotchi.dir\src
   TARGET_SUPPORT_DIR = CMakeFiles\tamagotchi.dir
 
+build CMakeFiles/tamagotchi.dir/src/animation.c.obj: C_COMPILER__tamagotchi_unscanned_ C$:/Tamagochi/tamagochi/src/animation.c || cmake_object_order_depends_target_tamagotchi
+  DEP_FILE = CMakeFiles\tamagotchi.dir\src\animation.c.obj.d
+  FLAGS = -std=gnu11
+  INCLUDES = -isystem C:/msys64/ucrt64/include/SDL2
+  OBJECT_DIR = CMakeFiles\tamagotchi.dir
+  OBJECT_FILE_DIR = CMakeFiles\tamagotchi.dir\src
+  TARGET_SUPPORT_DIR = CMakeFiles\tamagotchi.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target tamagotchi
@@ -84,7 +92,7 @@ build CMakeFiles/tamagotchi.dir/src/sprites.c.obj: C_COMPILER__tamagotchi_unscan
 #############################################
 # Link the executable tamagotchi.exe
 
-build tamagotchi.exe: C_EXECUTABLE_LINKER__tamagotchi_ CMakeFiles/tamagotchi.dir/src/main.c.obj CMakeFiles/tamagotchi.dir/src/graphics.c.obj CMakeFiles/tamagotchi.dir/src/platform_SDL.c.obj CMakeFiles/tamagotchi.dir/src/sprites.c.obj | C$:/msys64/ucrt64/lib/libSDL2.dll.a
+build tamagotchi.exe: C_EXECUTABLE_LINKER__tamagotchi_ CMakeFiles/tamagotchi.dir/src/main.c.obj CMakeFiles/tamagotchi.dir/src/graphics.c.obj CMakeFiles/tamagotchi.dir/src/platform_SDL.c.obj CMakeFiles/tamagotchi.dir/src/sprites.c.obj CMakeFiles/tamagotchi.dir/src/animation.c.obj | C$:/msys64/ucrt64/lib/libSDL2.dll.a
   LINK_LIBRARIES = C:/msys64/ucrt64/lib/libSDL2.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\tamagotchi.dir
   POST_BUILD = cd .

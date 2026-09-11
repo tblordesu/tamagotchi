@@ -11,6 +11,7 @@ add_executable(tamagotchi
     src/graphics.c
     src/platform_SDL.c
     src/sprites.c
+    src/animation.c
 )
 
 target_link_libraries(tamagotchi PRIVATE SDL2::SDL2)
