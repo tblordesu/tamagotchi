@@ -3,7 +3,7 @@
 #include "platform.h"
 #include "animation.h"
 
-static int switchSprite = 0;
+static int switchAnimation = 0;
 
 int main(int argc, char **args) {
     if (!platformInit())
@@ -14,11 +14,23 @@ int main(int argc, char **args) {
 
         uint32_t nowTime = platformGetTimeMs();
 
-        animationUpdate(&catIdleAnimation, nowTime);
+        if(platformButtonPressed(BUTTON_Q))
+            switchAnimation = 1;
 
-        graphicsClear();
-        
-        drawAnimation(40, 10, &catIdleAnimation);
+        else if(platformButtonPressed(BUTTON_W)) 
+            switchAnimation = 0;
+
+        if(switchAnimation) {
+            animationUpdate(&catIdleAnimation, nowTime);
+            graphicsClear();
+            drawAnimation(40, 10, &catIdleAnimation);
+        }
+
+        else {
+            animationUpdate(&catHappyAnimation, nowTime);
+            graphicsClear();
+            drawAnimation(40, 10, &catHappyAnimation);
+        }    
         
         platformPresent();
         
